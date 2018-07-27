@@ -127,7 +127,7 @@ for policy in asmPoliciesDataJson['items']:
 						
 								ipNetmaskList = ip.split(' ')	
 								whitelistIpAddBody = '{"ipAddress":"' +  ipNetmaskList[0] + '","ipMask":"' + ipNetmaskList[1] + '"}'
-								#curl -sk -u admin:pass https://<bigip>/mgmt/tm/asm/policies/<policyId>/whitelist-ips -H "Content-Type: application/json" -d '{"ipAddress":"<whitelist ip>", "ipMask":"<netmask>"}'  X POST
+								#curl -sk -u admin:pass -X POST https://<bigip>/mgmt/tm/asm/policies/<policyId>/whitelist-ips -H "Content-Type: application/json" -d '{"ipAddress":"<whitelist ip>", "ipMask":"<netmask>"}' 
 								whitelistIpResponse = requests.post(url=whitelistIpsUrl,data=whitelistIpAddBody,headers=restHeaders,auth=(adminUser,adminPass),verify=False)
 								
 						applyPolicyBody = '{ "policyReference": {"link":"' + policyIdUrl + '"} }'
@@ -141,7 +141,7 @@ for policy in asmPoliciesDataJson['items']:
 							ipNetmaskList = ip.split(' ')
 						
 							whitelistIpAddBody = '{"ipAddress":"' +  ipNetmaskList[0] + '","ipMask":"' + ipNetmaskList[1] + '"}'
-							#curl -sk -u admin:pass https://<bigip>/mgmt/tm/asm/policies/<policyId>/whitelist-ips -H "Content-Type: application/json" -d '{"ipAddress":"<whitelist ip>", "ipMask":"<netmask>"}'  X POST
+							#curl -sk -u admin:pass -X POST https://<bigip>/mgmt/tm/asm/policies/<policyId>/whitelist-ips -H "Content-Type: application/json" -d '{"ipAddress":"<whitelist ip>", "ipMask":"<netmask>"}'
 							whitelistIpResponse = requests.post(url=whitelistIpsUrl,data=whitelistIpAddBody,headers=restHeaders,auth=(adminUser,adminPass),verify=False)
 					
 						applyPolicyBody = '{ "policyReference": {"link":"' + policyIdUrl + '"} }'

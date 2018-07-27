@@ -10,8 +10,8 @@ requests.packages.urllib3.disable_warnings()
 #Configurable globals, should be configured to match your environment
 adminUser = 'admin'
 adminPass = 'bigip123'
-host = 'https://10.4.6.10'
-asmPoliciesPath = '/mgmt/tm/asm/policies?$name=python1'
+host = 'https://29.4.6.19'
+asmPoliciesPath = '/mgmt/tm/asm/policies?$filter=name+eq+python1'
 #End configurable globals
 
 #Host + uri
