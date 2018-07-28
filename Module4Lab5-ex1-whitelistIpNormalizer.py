@@ -145,4 +145,5 @@ for policy in asmPoliciesDataJson['items']:
 							whitelistIpResponse = requests.post(url=whitelistIpsUrl,data=whitelistIpAddBody,headers=restHeaders,auth=(adminUser,adminPass),verify=False)
 					
 						applyPolicyBody = '{ "policyReference": {"link":"' + policyIdUrl + '"} }'
+						#curl -sk -u admin:pass -X POST https://<bigip>//mgmt/tm/asm/tasks/apply-policy -H "Content-Type: application/json" -d { "policyReference": {"link":"<policyIdUrl>"} }
 						applyPolicyResponse = requests.post(url=applyPolicyUrl,data=applyPolicyBody,headers=restHeaders,auth=(adminUser,adminPass),verify=False)	
